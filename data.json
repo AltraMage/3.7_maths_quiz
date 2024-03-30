@@ -1,0 +1,21 @@
+{
+"easy": [
+    ["What is 3*9? ", "27"],
+    ["What is 2^3? ", "8"],
+    ["What is the square root of 4?", "2"]
+],
+"medium": [
+    ["What is 5^3? ", "125"],
+    ["What is 6.5 * 2? ", "13"],
+    ["What is 2+3? ", "5"]
+],
+"hard": [
+    ["3x +2 = 8, Find for x", "2"],
+    ["4y^2 + 1 = 37, Find for y", "3"],
+    ["4!", "24"]
+],
+"Impossible": [
+    ["17 / 0", "Undefined"],
+    ["tan (pi/2)(rad)", "Undefined"]
+]
+}
