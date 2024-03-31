@@ -22,6 +22,8 @@ General Flow is as follows:
 5. Ask for the filename
 6. Get the user to choose the location of the file
 """
+
+
 def create_file():
     X, Y = 400, 300  # Gets omitted if other ran externally
     popup = tk.Tk()
@@ -45,27 +47,30 @@ def create_file():
     def yesno(question: str, yes: object, no: object):
         lable = tk.Label(main, text=question)
         lable.pack()
-        yes_button = tk.Button(main, text="Yes", command=lambda: [clear(), yes()])
+        yes_button = tk.Button(main, text="Yes",
+                               command=lambda: [clear(), yes()])
         yes_button.pack()
-        no_button = tk.Button(main, text="No", command=lambda: [clear(), no()])
+        no_button = tk.Button(main, text="No",
+                              command=lambda: [clear(), no()])
         no_button.pack()
-
 
     def save_data():
         clear()
 
         def final():
-            with open(f"{entry.get()}.json", "w") as json_file:
+            with open(f"{entry.get()}.json",
+                      "w", encoding="utf8") as json_file:
                 json.dump(data, json_file, indent=4)
             end()
 
-        label = tk.Label(main, text="Please enter the name for the JSON file. (Omit the .json sufix)")
+        label = tk.Label(
+            main, text="Please enter the name for the JSON file. \
+(Omit the .json sufix)")
         label.pack()
         entry = tk.Entry(main)
         entry.pack()
         button = tk.Button(main, text="Save & Finalise", command=final)
         button.pack()
-
 
     def difficulty():
         def questions():
@@ -79,35 +84,39 @@ def create_file():
                 data[diff] = questions
 
             def append():
-                q, a = question_entry.get().strip().title(), answer_entry.get().strip().title()
+                q, a = question_entry.get().strip().title(),
+                answer_entry.get().strip().title()
                 if q == "" or a == "":
                     print("Null values in Question or Answer")
                     return None
                 questions.append([q, a])
                 print(f"added {q}, {a}")
                 question_entry.delete(0, tk.END)
-                answer_entry.delete(0, tk.END) 
-            
-            
+                answer_entry.delete(0, tk.END)
+
             clear()
-            question_lable = tk.Label(main, text=f"Please add a question into {diff}")   
+            question_lable = tk.Label(
+                main, text=f"Please add a question into {diff}")
             question_lable.pack()
             question_entry = tk.Entry(main)
             question_entry.pack()
-            answer_lable = tk.Label(main, text="Please write the answer.")   
+            answer_lable = tk.Label(main, text="Please write the answer.")
             answer_lable.pack()
             answer_entry = tk.Entry(main)
             answer_entry.pack()
             button = tk.Button(main, text="Submit", command=append)
             button.pack()
-            tk.Button(main, text="Cancel", command=lambda: [add_diff(), start()]).pack()
+            tk.Button(main, text="Cancel", command=lambda: [
+                      add_diff(), start()]).pack()
 
-        lable = tk.Label(main, text="What is the name of the difficulty to add?")
+        lable = tk.Label(
+            main, text="What is the name of the difficulty to add?")
         lable.pack()
         entry = tk.Entry(main)
         entry.pack()
         submit = tk.Button(main, text="Submit", command=questions)
         submit.pack()
+
     def start():
         clear()
         yesno("Do you want to add a difficulty? ", difficulty, save_data)
