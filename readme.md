@@ -72,4 +72,6 @@ JSON maker + choose alternate question set. When choosing new questions, check f
 After creating a file from the dropdown, the menubar is bugged (possibly a compiler issue)
 ### json_maker.py
 In-house solution to dynamically creating question lists for my program. Made to be dynamic with a GUI, not made to be user friendly as it is intended as a developer tool. Saves to the dir the program is ran from.
-json_maker works as intended, Could be slightly more clear, but good enough for me. 
+json_maker works as intended, Could be slightly more clear, but good enough for me.
+### ...quiz_v9.py
+Pep8 approved. More theming???? *N.b.* MacOS auto centers text, and uses a dark theme. Gonna be a pain to make consistent
