@@ -29,6 +29,14 @@ username: str = ""
 data, difficulties = [], []
 font = ("Arial", 16)
 
+tutorial_text = """
+You need to enter a valid username, choose a difficulty, and then answer each
+ question.\n\n\
+You will then be shown a results screen with your provided answers if
+ incorrect.\n\n\
+You will then have the option to quit or start again from the begining.
+"""
+
 
 def gather_data(source):
     """Get data from specificed JSON file."""
@@ -71,7 +79,7 @@ readme.md as either raw text or in your favourite markdown viewer")
 
     def tutorial():
         messagebox.showerror(
-            "Help", "Uhhh, you caught me, this hasnt been updated")
+            "Help", tutorial_text)
 
     def alt_questions():
         filename = filedialog.askopenfilename(
@@ -228,7 +236,10 @@ and only including latin chars")
                 box.destroy()
                 submit.destroy()
                 level_select()
-
+        welcoming = ttk.Label(root,
+                              text=f"Welcome to {__author__.split()[0]}\
+'s Math game!")
+        welcoming.place(relx=0.43, rely=0.2)
         label = ttk.Label(root, text="Please enter your name")
         label.place(relx=0.45, rely=0.25, relwidth=0.1)
         # User input handling
