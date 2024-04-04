@@ -17,7 +17,7 @@ COMPANY, LOGO, AND CWD are all constant.
 CWD represents the current working directory,
 allows the program to run on Windows, GNU/Unix & macOS
 """
-__version__ = "0.8"
+__version__ = "0.9"
 __author__ = "Logan Simonsen"
 COMPANY: str = "13CSI_2024"
 LOGO: str = "icon.gif"
