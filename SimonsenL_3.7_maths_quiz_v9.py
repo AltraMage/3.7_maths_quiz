@@ -2,9 +2,9 @@
 Game made to support year 9s in learning maths.
 
 Made for 13CSI_2024
-Use the command line arg -O when running
+Use the command line arg -0 when running
 """
-# Created 27/03/24
+# Created 3/04/24
 
 from os import getcwd
 import tkinter as tk
@@ -44,7 +44,7 @@ def gather_data(source):
     # Get the data for the questions
     with open(source, "r") as file:
         data = json.load(file)
-    if __debug__:
+    if __debug__ == False:
         print(data)
 
     difficulties = []
@@ -57,7 +57,7 @@ def main():
     root = tk.Tk()
     # ttk.Label.configure(font=font)
     x_canvas, y_canvas = root.winfo_width(), root.winfo_height()
-    if __debug__:
+    if __debug__ == False:
         print(x_canvas, y_canvas)
     root.title(f"Math game for {COMPANY}")
     # Sets the app icon to be the tawa college emblem
@@ -91,13 +91,13 @@ readme.md as either raw text or in your favourite markdown viewer")
             messagebox.showinfo(
                 "Success",
                 "Worked perfectly, changed may be buggy unless restarted")
-            if __debug__:
+            if __debug__ == False:
                 print("New files loaded successfully")
             source_file = filename
             pass
         except IndexError:
             gather_data(DEFAULT_JSON_FILE)
-            if __debug__:
+            if __debug__ == False:
                 print("Failed")
                 messagebox.showerror(
                     "Error with custom file",
@@ -168,13 +168,13 @@ Correct answer was: {question_set[i][1]}").pack()
             nonlocal current_question
             answer = entry.get().strip()
             correct_answer = question_set[current_question][1]
-            if __debug__:
+            if __debug__ == False:
                 print(f"User: {answer}, Correct: {correct_answer}")
             clear_div()
             result = str(answer) == str(correct_answer)
             if result == 0:
                 question_set[current_question].append(answer)
-                if __debug__:
+                if __debug__ == False:
                     print(question_set)
             if result == 1:
                 lable = ttk.Label(div, text="Good Job! You got it right!")
@@ -187,7 +187,7 @@ Correct answer was: {question_set[i][1]}").pack()
             button.pack()
             current_question += 1  # Increment after setting answers
 
-        if __debug__:
+        if __debug__ == False:
             print(index)
             print(question_set)
             # iterate throught all questions for debuging
@@ -212,7 +212,7 @@ Correct answer was: {question_set[i][1]}").pack()
         for i, options in enumerate(difficulties):  # i refers to the index
             options = ttk.Button(div, text=options.title(
             ),  command=lambda i=i, hardness=options: level(hardness, i))
-            if __debug__:
+            if __debug__ == False:
                 print(f"options:{options}, i:{i}")
             options.pack()
 
@@ -223,10 +223,11 @@ Correct answer was: {question_set[i][1]}").pack()
             value = box.get().strip().title().replace("-", "")
             if value.isalpha() and 2 < len(value) < 15:
                 username = value
-                if __debug__:
+                if __debug__ == False:
                     print(box.get())
                     print(f"{username =}")
             else:
+                username = ""
                 messagebox.showerror(
                     "Non-fatal Error!",
                     "Your name needs to be bewteen 2 and 15 chars, \
@@ -235,7 +236,9 @@ and only including latin chars")
                 label.destroy()
                 box.destroy()
                 submit.destroy()
+                welcoming.destroy()
                 level_select()
+
         welcoming = ttk.Label(root,
                               text=f"Welcome to {__author__.split()[0]}\
 's Math game!")
