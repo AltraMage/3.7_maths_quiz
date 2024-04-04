@@ -222,7 +222,7 @@ Correct answer was: {question_set[i][1]}").pack()
         def check_name():
             global username  # Use the global scope else incorrect assignment
             value = box.get().strip().title().replace("-", "")
-            if value.isalpha() and 2 < len(value) < 15:
+            if value.isalpha() and 2 <= len(value) <= 15:
                 username = value
                 if __debug__ == False:
                     print(box.get())
