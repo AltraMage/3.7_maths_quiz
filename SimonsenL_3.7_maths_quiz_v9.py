@@ -199,6 +199,7 @@ Correct answer was: {question_set[i][1]}").pack()
             lable.pack()
             entry = ttk.Entry(div)
             entry.pack()
+            entry.focus()
             sumbit = ttk.Button(div, text="Submit Answer",
                                 command=compare_answers)
             sumbit.pack()
@@ -248,6 +249,7 @@ and only including latin chars")
         # User input handling
         box = ttk.Entry(root)
         box.place(relx=0.45, rely=0.3, relwidth=0.1)
+        box.focus()
 
         submit = ttk.Button(root, text="Submit Name",
                             command=lambda: check_name())
@@ -258,7 +260,7 @@ and only including latin chars")
     current_question: int = 0
     root.state("zoomed")
     end = ttk.Button(root, text="Quit", command=leave)
-    end.place(relx=0.95, rely=0.95)
+    end.place(relx=0.93, rely=0.95)
     getusername()
     root.mainloop()
 
