@@ -164,7 +164,7 @@ Correct answer was: {question_set[i][1]}").pack()
             button = ttk.Button(root, text="Quit", command=leave)
             button.pack()
 
-        def compair_answers():
+        def compare_answers():
             nonlocal current_question
             answer = entry.get().strip()
             correct_answer = question_set[current_question][1]
@@ -200,7 +200,7 @@ Correct answer was: {question_set[i][1]}").pack()
             entry = ttk.Entry(div)
             entry.pack()
             sumbit = ttk.Button(div, text="Submit Answer",
-                                command=compair_answers)
+                                command=compare_answers)
             sumbit.pack()
             div.update()
         except IndexError:
