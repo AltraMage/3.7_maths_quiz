@@ -1,6 +1,7 @@
 """
-Create a json file for use in Logan's 13CSI Tkinter program
+Create a json file for use in Logan's 13CSI Tkinter program.
 
+Data is a dict with nested list.
 """
 import tkinter as tk
 import json
@@ -25,6 +26,7 @@ General Flow is as follows:
 
 
 def create_file():
+    """Run the Main function."""
     X, Y = 400, 300  # Gets omitted if other ran externally
     popup = tk.Tk()
     popup.geometry(f"{X}x{Y}")
@@ -84,8 +86,8 @@ def create_file():
                 data[diff] = questions
 
             def append():
-                q, a = question_entry.get().strip().title(),
-                answer_entry.get().strip().title()
+                q = question_entry.get().strip().title()
+                a = answer_entry.get().strip().title()
                 if q == "" or a == "":
                     print("Null values in Question or Answer")
                     return None
