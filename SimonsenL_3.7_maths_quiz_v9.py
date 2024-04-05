@@ -29,12 +29,14 @@ username: str = ""
 data, difficulties = [], []
 font = ("Arial", 16)
 
-tutorial_text = """
+TUTORIAL_TEXT = """
 You need to enter a valid username, choose a difficulty, and then answer each
  question.\n\n\
 You will then be shown a results screen with your provided answers if
  incorrect.\n\n\
-You will then have the option to quit or start again from the begining.
+You will then have the option to quit or start again from the begining. \n\n\n
+
+You can create or choose new question sets via the menu bar.
 """
 
 
@@ -79,7 +81,7 @@ readme.md as either raw text or in your favourite markdown viewer")
 
     def tutorial():
         messagebox.showerror(
-            "Help", tutorial_text)
+            "Help", TUTORIAL_TEXT)
 
     def alt_questions():
         filename = filedialog.askopenfilename(
