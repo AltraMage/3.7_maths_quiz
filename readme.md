@@ -74,4 +74,11 @@ After creating a file from the dropdown, the menubar is bugged (possibly a compi
 In-house solution to dynamically creating question lists for my program. Made to be dynamic with a GUI, not made to be user friendly as it is intended as a developer tool. Saves to the dir the program is ran from.
 json_maker works as intended, Could be slightly more clear, but good enough for me.
 ### ...quiz_v9.py
-Pep8 approved. More theming???? *N.b.* MacOS auto centers text, and uses a dark theme. Gonna be a pain to make consistent
+Pep8 approved. More theming???? *N.b.* MacOS auto centers text, and uses a dark theme. Gonna be a pain to make consistent.
+Did A, M, E testing on this version. Technically the version to submit, but yeah.  
+Uses rdbende's azure theme for cross platformisms, havent actually checked windows though. 
+Some minor refactoring as well. (We ❤️ Spagetti code!) 
+#### Known bugs:
+- There is now a cut off to the amount of levels. 
+- azure.tcl, and ./theme/* have to be included in the download, (Watch this space(filestealer.py))
+- A lot is slightly off centre due to python things.
