@@ -45,8 +45,13 @@ def gather_data(source):
     """Get data from specificed JSON file."""
     global data, difficulties
     # Get the data for the questions
-    with open(source, "r") as file:
-        data = json.load(file)
+    try:
+        with open(source, "r") as file:
+            data = json.load(file)
+    except FileNotFoundError as e:
+        print(f"Program could not run due to incorrect file structure.\
+Make sure the default data.json is in the same directory as the quiz! \
+{e}")
     if __debug__ is True:
         print(data)
 
