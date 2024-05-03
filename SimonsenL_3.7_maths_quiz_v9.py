@@ -180,7 +180,7 @@ Correct answer was: {question_set[i][1]}").pack()
             if __debug__ is True:
                 print(f"User: {answer}, Correct: {correct_answer}")
             clear_div()
-            result = str(answer) == str(correct_answer)
+            result = str(answer).lower() == str(correct_answer).lower()
             if result == 0:
                 question_set[current_question].append(answer)
                 if __debug__ is True:
