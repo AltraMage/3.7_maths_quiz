@@ -4,6 +4,7 @@ Create a json file for use in Logan's 13CSI Tkinter program.
 Data is a dict with nested list.
 """
 import tkinter as tk
+from tkinter import messagebox
 import json
 
 __author__ = "Logan Simonsen"
@@ -61,10 +62,17 @@ def create_file():
         clear()
 
         def final():
-            with open(f"{entry.get()}.json",
-                      "w", encoding="utf8") as json_file:
-                json.dump(data, json_file, indent=4)
-            end()
+            try:
+                with open(f"{entry.get()}.json",
+                          "w", encoding="utf8") as json_file:
+                    json.dump(data, json_file, indent=4)
+                    end()
+            except OSError or FileNotFoundError as write_error:
+                messagebox.showerror("Disk write error",
+                                     f"Please try again with a \
+different filename, Characters such as '\', '/', ':', ect. May not be allowed\
+ due to system limits, see error below \n\n\
+{write_error}")
 
         label = tk.Label(
             main, text="Please enter the name for the JSON file. \
