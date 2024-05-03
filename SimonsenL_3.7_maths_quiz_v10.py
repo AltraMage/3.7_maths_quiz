@@ -52,7 +52,7 @@ def gather_data(source):
         with open(source, "r") as file:
             data = json.load(file)
     except FileNotFoundError as no_file_error:
-        messagebox.showerror("You may need to reinstall the program", 
+        messagebox.showerror("You may need to reinstall the program",
                              f"{source} could not be located. \
 Please go to the file drop down menu to manually select a question file \n\n\
 {no_file_error}")
