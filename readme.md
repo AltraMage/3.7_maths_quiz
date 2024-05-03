@@ -1,5 +1,23 @@
 # 13CSI Math Game
 https://github.com/AltraMage/3.7_maths_quiz
+
+GUI based math game for Tawa College year 9's. Calculators are cheating for this one!
+
+## Features
+- Custom Questions; Could be adapted for any context
+- Fully error caught
+- Works offline
+- Light / Dark theme
+
+## Prerequisits
+- CPython 3.12.2 or greated (Provied as is with no warrenty)
+- json_maker_ux.py in same directory, as well as a usable question file
+- 
+
+Many thanks to my testers: Ben, Hayden, Ewan & Quinn for making sure that every little thing works perfectly.  
+Thanks to MCL & JNN for supporting on the questions (Adapted and stolen from their teaching material!)
+
+github.com/rdbende for the azure theme, pretty cool imo.
 ## Research
 Strengthen - Easyish  
 Stretch - Hard
@@ -24,16 +42,16 @@ Stretch - Hard
   - Change the question set via the help menu ✔️
 - LaTeX support for math equations?
   - Similar effect with matplotlib https://www.tutorialspoint.com/how-to-display-latex-in-real-time-in-a-text-box-in-tkinter
+- Show tutorial on first run (made at some stage but lost to time)
 
 ## Files
 ### data.json
 Formated question data with difficulties implemented
+### year_9_questions.json
+Final question set
 
 ### icon.gif / .ico
-Image for the GUI's interface
-
-### stolen.py
-ChatGPT generated code for use as a reference for making JSON files. No code has been copied line for line from said file.
+Image for the GUI's interface *N.B* ....ico is a windows icon variant and would have only worked for a compiled exe version and thus remains as an atifact from testing.
 
 ### ...quiz_v1.py
 Fully error-checked name input as well as set up for the rest of the program
