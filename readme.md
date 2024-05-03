@@ -1,4 +1,5 @@
 # 13CSI Math Game
+https://github.com/AltraMage/3.7_maths_quiz
 ## Research
 Strengthen - Easyish
 Stretch - Hard
@@ -83,4 +84,5 @@ Some minor refactoring as well. (We ❤️ Spagetti code!)
 - azure.tcl, and ./theme/* have to be included in the download, (Watch this space(filestealer.py))
 - A lot is slightly off centre due to python things.
 ### ...quiz_v10.py
-Tried adding a font via `option_add()`, still a WIP
+Tried adding a font via `option_add()`, doesnt work. 
+Added 
