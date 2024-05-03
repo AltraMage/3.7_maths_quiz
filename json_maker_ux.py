@@ -88,6 +88,8 @@ different filename, Characters such as '\', '/', ':', ect. May not be allowed\
             questions = []
             diff = entry.get().title()
             if diff.strip() == "":
+                messagebox.showerror("Please name the difficulty",
+                                     "The difficulty cannot be null!")
                 return None
 
             def add_diff():
@@ -95,10 +97,12 @@ different filename, Characters such as '\', '/', ':', ect. May not be allowed\
                 data[diff] = questions
 
             def append():
-                q = question_entry.get().strip().title()
-                a = answer_entry.get().strip().title()
+                q = question_entry.get().strip()
+                a = answer_entry.get().strip()
                 if q == "" or a == "":
                     print("Null values in Question or Answer")
+                    messagebox.showerror("Null values in Question or Answer",
+                                         "Make sure neither box is empty!")
                     return None
                 questions.append([q, a])
                 print(f"added {q}, {a}")

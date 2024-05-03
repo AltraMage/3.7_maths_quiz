@@ -1,0 +1,46 @@
+{
+    "Strengthen": [
+        [
+            "List The Second Lowest Factor Of 8:",
+            "2"
+        ],
+        [
+            "What Is The Highest Common Factor Of 6 And 8?",
+            "2"
+        ],
+        [
+            "What Is The Highest Common Factor Of 12 And 20?",
+            "4"
+        ],
+        [
+            "What Is The 4th Muliple Of 3?",
+            "12"
+        ],
+        [
+            "How many Even Prime Numbers are there?",
+            "1"
+        ]
+    ],
+    "Stretch": [
+        [
+            "-2 - (-4)",
+            "2"
+        ],
+        [
+            "Round 6.437823 To 2 Decimal Places",
+            "6.44"
+        ],
+        [
+            "Round 2905.06 To 3 Significant Figures",
+            "2900"
+        ],
+        [
+            "Decrease 40 By 25%",
+            "30"
+        ],
+        [
+            "Simplify The Following Ratio: 9:3",
+            "3:1"
+        ]
+    ]
+}

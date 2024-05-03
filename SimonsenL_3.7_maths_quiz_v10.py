@@ -24,7 +24,7 @@ __author__ = "Logan Simonsen"
 COMPANY: str = "13CSI_2024"
 LOGO: str = "icon.gif"
 CWD = getcwd()
-DEFAULT_JSON_FILE = "data.json"
+DEFAULT_JSON_FILE = "year_9_questions.json"
 
 source_file = DEFAULT_JSON_FILE
 username: str = ""
@@ -81,8 +81,8 @@ def main():
     # Sets the app icon to be the tawa college emblem
     root.iconphoto(False, tk.PhotoImage(
         file=fr"{CWD}/{LOGO}"))
+    # Set the window size to max possible
     root.geometry(f"{x_canvas}x{y_canvas}")
-    # Used exclusively by the level select
     div = tk.Canvas(root, width=x_canvas, height=y_canvas)
     div.pack()
 
@@ -116,10 +116,11 @@ readme.md as either raw text or in your favourite markdown viewer")
             global source_file
             messagebox.showinfo(
                 "Success",
-                "Worked perfectly, changed may be buggy unless restarted")
+                "Worked perfectly, reseting now!")
             if __debug__ is True:
                 print("New files loaded successfully")
             source_file = filename
+            leave(), main()
             pass
         except IndexError:
             gather_data(DEFAULT_JSON_FILE)
