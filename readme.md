@@ -85,4 +85,7 @@ Some minor refactoring as well. (We ❤️ Spagetti code!)
 - A lot is slightly off centre due to python things.
 ### ...quiz_v10.py
 Tried adding a font via `option_add()`, doesnt work. 
-Added 
+Added light / dark mode switcher
+Added verbose error catchingc to serveral situations
+### json_maker_ux.py
+Successor to json_maker. Verbosifying errors

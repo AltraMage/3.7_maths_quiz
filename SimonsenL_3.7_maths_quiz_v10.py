@@ -12,7 +12,7 @@ from os import getcwd
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import json
-import json_maker
+import json_maker_ux
 
 """
 COMPANY, LOGO, AND CWD are all constant.
@@ -135,7 +135,7 @@ Please check and try again.")
     root.config(menu=menubar)
     filemenu = tk.Menu(menubar, tearoff=0)
     filemenu.add_command(label="Create Custom Questions",
-                         command=json_maker.create_file)
+                         command=json_maker_ux.create_file)
     filemenu.add_command(label="Select Custom Level set",
                          command=alt_questions)
     menubar.add_cascade(label="File", menu=filemenu)
@@ -271,7 +271,7 @@ and only including latin chars")
                               text=f"Welcome to {__author__.split()[0]}\
 's Quiz!")
         welcoming.pack()
-        label = ttk.Label(root, text="   Please enter your name   ")
+        label = ttk.Label(root, text="Please enter your name")
         label.pack()
         # User input handling
         box = ttk.Entry(root)
