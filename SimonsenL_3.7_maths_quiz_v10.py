@@ -6,7 +6,7 @@ Use the command line arg -0 when running
 
 https://github.com/AltraMage/3.7_maths_quiz
 """
-# Created 3/04/24
+# Created 4/05/24
 
 from os import getcwd
 import tkinter as tk
