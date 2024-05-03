@@ -1,7 +1,7 @@
 # 13CSI Math Game
 https://github.com/AltraMage/3.7_maths_quiz
 ## Research
-Strengthen - Easyish
+Strengthen - Easyish  
 Stretch - Hard
 
 
