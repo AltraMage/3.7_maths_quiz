@@ -62,7 +62,7 @@ def main():
     styling = ttk.Style()
     # Theme used under MIT licence, thanks to rdbende.
     root.call("source", "azure.tcl")
-    root.call("set_theme", "dark")
+    root.call("set_theme", "light")
     if __debug__ is True:
         print(styling.theme_use())
     x_canvas, y_canvas = root.winfo_width(), root.winfo_height()
@@ -224,8 +224,8 @@ Correct answer was: {question_set[i][1]}").pack()
             ),  command=lambda i=i, hardness=options: level(hardness, i))
             if __debug__ is True:
                 print(f"options:{options}, i:{i}")
-            buttons = len(difficulties)
-            options.place(relx=0.3, rely=((i+1)/buttons - 0.2))
+            # buttons = len(difficulties)
+            options.pack()
 
     def getusername():
 
@@ -236,7 +236,7 @@ Correct answer was: {question_set[i][1]}").pack()
                 username = value
                 if __debug__ is True:
                     print(box.get())
-                    print(f"{username =}")
+                    print(f"{username=}")
             else:
                 username = ""
                 messagebox.showerror(

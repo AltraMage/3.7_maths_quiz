@@ -17,10 +17,10 @@ Stretch - Hard
 - Excesive Documentation
 - Radial Gradient bgs to draw attention
 - Consistent fonts/colors / branding
-  - use ttk for pretteirness
-- Interface for making different questions
-  - Done via the help menu
-  - Change the question set via the help menu
+  - use ttk for pretteirness ✔️
+- Interface for making different questions ✔️
+  - Done via the help menu ✔️
+  - Change the question set via the help menu ✔️
 - LaTeX support for math equations?
   - Similar effect with matplotlib https://www.tutorialspoint.com/how-to-display-latex-in-real-time-in-a-text-box-in-tkinter
 
@@ -75,10 +75,12 @@ In-house solution to dynamically creating question lists for my program. Made to
 json_maker works as intended, Could be slightly more clear, but good enough for me.
 ### ...quiz_v9.py
 Pep8 approved. More theming???? *N.b.* MacOS auto centers text, and uses a dark theme. Gonna be a pain to make consistent.
-Did A, M, E testing on this version. Technically the version to submit, but yeah.  
+Did A & M testing on this version. Technically the version to submit, but yeah.  
 Uses rdbende's azure theme for cross platformisms, havent actually checked windows though. 
 Some minor refactoring as well. (We ❤️ Spagetti code!) 
 #### Known bugs:
 - There is now a cut off to the amount of levels. 
 - azure.tcl, and ./theme/* have to be included in the download, (Watch this space(filestealer.py))
 - A lot is slightly off centre due to python things.
+### ...quiz_v10.py
+Tried adding a font via `option_add()`, still a WIP
