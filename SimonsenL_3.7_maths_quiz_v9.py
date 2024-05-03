@@ -253,12 +253,12 @@ and only including latin chars")
         welcoming = ttk.Label(root,
                               text=f"Welcome to {__author__.split()[0]}\
 's Quiz!")
-        welcoming.place(relx=0.45, rely=0.2, relwidth=0.1)
+        welcoming.pack()
         label = ttk.Label(root, text="   Please enter your name   ")
-        label.place(relx=0.45, rely=0.25, relwidth=0.1)
+        label.pack()
         # User input handling
         box = ttk.Entry(root)
-        box.place(relx=0.45, rely=0.3, relwidth=0.1)
+        box.pack()
         box.focus()
 
         submit = ttk.Button(root, text="Submit Name",
