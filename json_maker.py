@@ -52,7 +52,7 @@ def create_file():
         yes_button = tk.Button(main, text="Yes",
                                command=lambda: [clear(), yes()])
         yes_button.pack()
-        no_button = tk.Button(main, text="No",
+        no_button = tk.Button(main, text="Cancle",
                               command=lambda: [clear(), no()])
         no_button.pack()
 
