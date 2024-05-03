@@ -67,7 +67,7 @@ def main():
     styling = ttk.Style()
     # Theme used under MIT licence, thanks to rdbende.
     root.call("source", "azure.tcl")
-    root.call("set_theme", "light")
+    root.call("set_theme", "dark")
     if __debug__ is True:
         print(styling.theme_use())
     x_canvas, y_canvas = root.winfo_width(), root.winfo_height()
