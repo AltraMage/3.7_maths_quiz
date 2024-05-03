@@ -12,7 +12,6 @@ GUI based math game for Tawa College year 9's. Calculators are cheating for this
 ## Prerequisits
 - CPython 3.12.2 or greated (Provied as is with no warrenty)
 - json_maker_ux.py in same directory, as well as a usable question file
-- 
 
 Many thanks to my testers: Ben, Hayden, Ewan & Quinn for making sure that every little thing works perfectly.  
 Thanks to MCL & JNN for supporting on the questions (Adapted and stolen from their teaching material!)
