@@ -3,6 +3,8 @@ Game made to support year 9s in learning maths.
 
 Made for 13CSI_2024
 Use the command line arg -0 when running
+
+https://github.com/AltraMage/3.7_maths_quiz
 """
 # Created 3/04/24
 
@@ -49,10 +51,11 @@ def gather_data(source):
     try:
         with open(source, "r") as file:
             data = json.load(file)
-    except FileNotFoundError as e:
-        print(f"Program could not run due to incorrect file structure.\
-Make sure the default data.json is in the same directory as the quiz! \
-{e}")
+    except FileNotFoundError as no_file_error:
+        messagebox.showerror("You may need to reinstall the program", 
+                             f"{source} could not be located. \
+Please go to the file drop down menu to manually select a question file \n\n\
+{no_file_error}")
     if __debug__ is True:
         print(data)
 
