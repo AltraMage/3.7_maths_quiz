@@ -74,6 +74,7 @@ def main():
     root.call("set_theme", current_theme)
     if __debug__ is True:
         print(styling.theme_use())
+    # Sets variables to the screen max size
     x_canvas, y_canvas = root.winfo_width(), root.winfo_height()
     if __debug__ is True:
         print(x_canvas, y_canvas)
@@ -87,12 +88,17 @@ def main():
     div.pack()
 
     def swap_theme():
+        """
+        Swap theme color pallet
+
+        Could be implemented using switch, at the cost of readabilty
+        """
         global current_theme
         if current_theme == "dark":
             current_theme = "light"
         else:
             current_theme = "dark"
-        root.call("set_theme", current_theme)
+        root.call("set_theme", current_theme)  # Update
 
     def copyright():
         messagebox.showinfo(
@@ -108,6 +114,7 @@ readme.md as either raw text or in your favourite markdown viewer")
             "Help", TUTORIAL_TEXT)
 
     def alt_questions():
+        # Get the user to choose a file to use
         filename = filedialog.askopenfilename(
             title="Select JSON file", initialdir="/",
             filetypes=[("Json", '*.json')])
@@ -120,9 +127,10 @@ readme.md as either raw text or in your favourite markdown viewer")
             if __debug__ is True:
                 print("New files loaded successfully")
             source_file = filename
+            # Quit and then re-run program with new questions
             leave(), main()
             pass
-        except IndexError:
+        except IndexError:  # Revert to default JSON file
             gather_data(DEFAULT_JSON_FILE)
             if __debug__ is True:
                 print("Failed")
@@ -132,6 +140,7 @@ readme.md as either raw text or in your favourite markdown viewer")
 Please check and try again.")
             pass
 
+    # Menu bar items, could be refactored
     menubar = tk.Menu(root)
     root.config(menu=menubar)
     filemenu = tk.Menu(menubar, tearoff=0)
@@ -147,6 +156,7 @@ Please check and try again.")
     menubar.add_cascade(label="Help", menu=helpmenu)
 
     def clear_div():
+        # Delete all items in the window
         for child in div.winfo_children():
             child.destroy()
         div.update()
@@ -156,26 +166,44 @@ Please check and try again.")
         root.destroy()
 
     def level(hardness, index):
+        # Starts each level with the difficulty and the index of the difficulty
         clear_div()
 
         question_set = data[hardness]  # Hardness bc data is a dict
         incorrect_answers = 0
 
         def show_results():
+            """
+            Show the user the quiz results
+
+            question_set format:
+            question_set[i] is the difficulty
+            question_set[i][0] is the question
+            question_set[i][1] is the answer
+            question_set[i][2] is the user given answer
+            The index at [2] only exists is the user got the question wrong
+            because of this we can presume the user go the question wrong and
+            except the error if they didn't (they got it right)
+
+            Two quit buttons because it is better to have the one always
+            in the bottom right and then a new more obvious one.
+            """
             clear_div()
             nonlocal incorrect_answers
             lable = ttk.Label(
                 div, text=f"Excellent Job, {username}! \n\
 You've completed the quiz!")
             lable.pack()
+            # questions is unused, but needed due to enumerate
             for i, questions in enumerate(question_set):  # question_set[i]
                 try:
+                    # Display results from nested list
                     lable = ttk.Label(
                         div, text=f"Question: {question_set[i][0]} \
 Correct answer was: {question_set[i][1]} \
 (You entered: {question_set[i][2]})").pack()
                     incorrect_answers += 1
-                except IndexError:
+                except IndexError:  # Error to see if question is correct
                     lable = ttk.Label(
                         div, text=f"Question: {question_set[i][0]} \
 Correct answer was: {question_set[i][1]}").pack()
@@ -192,6 +220,7 @@ Correct answer was: {question_set[i][1]}").pack()
             button.pack()
 
         def compare_answers():
+            # Post answer comparison feedback
             nonlocal current_question
             answer = entry.get().strip()
             correct_answer = question_set[current_question][1]
@@ -203,7 +232,7 @@ Correct answer was: {question_set[i][1]}").pack()
                 question_set[current_question].append(answer)
                 if __debug__ is True:
                     print(question_set)
-            if result == 1:
+            if result == 1:  # if result is true
                 lable = ttk.Label(div, text="Good Job! You got it right!")
                 lable.pack()
             else:
@@ -232,21 +261,22 @@ Correct answer was: {question_set[i][1]}").pack()
             sumbit.pack()
             div.update()
         except IndexError:
+            # Error to console, wont effect end user.
             print("Slightly intented, easiest way to find end of list")
             show_results()
             pass
 
     def level_select():
+        # Create a button for each difficulty
         for i, options in enumerate(difficulties):  # i refers to the index
             options = ttk.Button(div, text=options.title(
             ),  command=lambda i=i, hardness=options: level(hardness, i))
             if __debug__ is True:
                 print(f"options:{options}, i:{i}")
-            # buttons = len(difficulties)
             options.pack()
 
     def getusername():
-
+        # Code for getting a valid username
         def check_name():
             global username  # Use the global scope else incorrect assignment
             value = box.get().strip().title().replace("-", "")
@@ -268,6 +298,7 @@ and only including latin chars")
                 welcoming.destroy()
                 level_select()
 
+        # Using the auther dunder constant, get the first word
         welcoming = ttk.Label(root,
                               text=f"Welcome to {__author__.split()[0]}\
 's Quiz!")
@@ -286,13 +317,15 @@ and only including latin chars")
     clear_div()
     gather_data(source_file)
     current_question: int = 0
+    # Make it full screen, note animation time.
     root.state("zoomed")
 
+    # Buttons for user control and freedom
     theme_toggle = ttk.Button(root, text="Light / Dark", command=swap_theme)
     theme_toggle.place(relx=0.93, rely=0.9)
-
     end = ttk.Button(root, text="Quit", command=leave)
     end.place(relx=0.93, rely=0.95)
+
     getusername()
     root.mainloop()
 
