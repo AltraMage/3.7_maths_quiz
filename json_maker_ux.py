@@ -40,6 +40,7 @@ def create_file():
     def end():
         popup.destroy()
 
+    # Constant quit without saving button
     emergency_exit = tk.Button(popup, text="Quit without saving", command=end)
     emergency_exit.pack(anchor=tk.SE)
 
@@ -54,7 +55,7 @@ def create_file():
         yes_button = tk.Button(main, text="Yes",
                                command=lambda: [clear(), yes()])
         yes_button.pack()
-        no_button = tk.Button(main, text="Cancle",
+        no_button = tk.Button(main, text="Cancel",
                               command=lambda: [clear(), no()])
         no_button.pack()
 
@@ -103,7 +104,7 @@ different filename, Characters such as '\', '/', ':', ect. May not be allowed\
                     print("Null values in Question or Answer")
                     messagebox.showerror("Null values in Question or Answer",
                                          "Make sure neither box is empty!")
-                    return None
+                    return None  # Stops null values from being appended
                 questions.append([q, a])
                 print(f"added {q}, {a}")
                 question_entry.delete(0, tk.END)
