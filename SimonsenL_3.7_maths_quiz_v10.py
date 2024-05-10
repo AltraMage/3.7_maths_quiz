@@ -34,12 +34,13 @@ current_theme = "dark"
 
 
 TUTORIAL_TEXT = """
-You need to enter a valid username, choose a difficulty, and then answer each
- question.\n\n\
-You will then be shown a results screen with your provided answers if
- incorrect.\n\n\
-You will then have the option to quit or start again from the begining. \n\n\n
+You need to enter a valid username, choose a difficulty, and then answer each \
+question.
 
+You will then be shown a results screen with your provided answers if \
+incorrect.
+
+You will then have the option to quit or start again from the begining.
 You can create or choose new question sets via the menu bar.
 """
 
