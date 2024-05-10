@@ -55,7 +55,7 @@ def create_file():
         yes_button = tk.Button(main, text="Yes",
                                command=lambda: [clear(), yes()])
         yes_button.pack()
-        no_button = tk.Button(main, text="Cancel",
+        no_button = tk.Button(main, text="No",
                               command=lambda: [clear(), no()])
         no_button.pack()
 
@@ -71,13 +71,13 @@ def create_file():
             except OSError or FileNotFoundError as write_error:
                 messagebox.showerror("Disk write error",
                                      f"Please try again with a \
-different filename, Characters such as '\', '/', ':', ect. May not be allowed\
- due to system limits, see error below \n\n\
+different filename, Characters such as '\', '/', ':', '|' etc. May not be \
+allowed due to system limits, see error below \n\n\
 {write_error}")
 
         label = tk.Label(
             main, text="Please enter the name for the JSON file. \
-(Omit the .json sufix)")
+(Omit the .json suffix)")
         label.pack()
         entry = tk.Entry(main)
         entry.pack()
@@ -122,7 +122,7 @@ different filename, Characters such as '\', '/', ':', ect. May not be allowed\
             answer_entry.pack()
             button = tk.Button(main, text="Submit", command=append)
             button.pack()
-            tk.Button(main, text="Cancel", command=lambda: [
+            tk.Button(main, text="Finish", command=lambda: [
                       add_diff(), start()]).pack()
 
         lable = tk.Label(
