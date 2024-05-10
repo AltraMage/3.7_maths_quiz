@@ -2,7 +2,7 @@
 Game made to support year 9s in learning maths.
 
 Made for 13CSI_2024
-Use the command line arg -0 when running
+Use the command line arg -O when running
 
 https://github.com/AltraMage/3.7_maths_quiz
 """
@@ -19,7 +19,7 @@ COMPANY, LOGO, AND CWD are all constant.
 CWD represents the current working directory,
 allows the program to run on Windows, GNU/Unix & macOS
 """
-__version__ = "1.0"  # Submition version
+__version__ = "1.0.3"  # Submition version
 __author__ = "Logan Simonsen"
 COMPANY: str = "13CSI_2024"
 LOGO: str = "icon.gif"
@@ -56,7 +56,7 @@ def gather_data(source):
                              f"{source} could not be located. \
 Please go to the file drop down menu to manually select a question file \n\n\
 {no_file_error}")
-    if __debug__ is True:
+    if __debug__ is not False:
         print(data)
 
     # Create list of all the difficulties
@@ -72,11 +72,11 @@ def main():
     # Theme used under MIT licence, thanks to rdbende.
     root.call("source", "azure.tcl")
     root.call("set_theme", current_theme)
-    if __debug__ is True:
+    if __debug__ is not False:
         print(styling.theme_use())
     # Sets variables to the screen max size
     x_canvas, y_canvas = root.winfo_width(), root.winfo_height()
-    if __debug__ is True:
+    if __debug__ is not False:
         print(x_canvas, y_canvas)
     root.title(f"Math game for {COMPANY}")
     # Sets the app icon to be the tawa college emblem
@@ -124,7 +124,7 @@ readme.md as either raw text or in your favourite markdown viewer")
             messagebox.showinfo(
                 "Success",
                 "Worked perfectly, reseting now!")
-            if __debug__ is True:
+            if __debug__ is not False:
                 print("New files loaded successfully")
             source_file = filename
             # Quit and then re-run program with new questions
@@ -132,7 +132,7 @@ readme.md as either raw text or in your favourite markdown viewer")
             pass
         except IndexError:  # Revert to default JSON file
             gather_data(DEFAULT_JSON_FILE)
-            if __debug__ is True:
+            if __debug__ is not False:
                 print("Failed")
                 messagebox.showerror(
                     "Error with custom file",
@@ -224,13 +224,13 @@ Correct answer was: {question_set[i][1]}").pack()
             nonlocal current_question
             answer = entry.get().strip()
             correct_answer = question_set[current_question][1]
-            if __debug__ is True:
+            if __debug__ is not False:
                 print(f"User: {answer}, Correct: {correct_answer}")
             clear_div()
             result = str(answer).lower() == str(correct_answer).lower()
             if result == 0:
                 question_set[current_question].append(answer)
-                if __debug__ is True:
+                if __debug__ is not False:
                     print(question_set)
             if result == 1:  # if result is true
                 lable = ttk.Label(div, text="Good Job! You got it right!")
@@ -243,7 +243,7 @@ Correct answer was: {question_set[i][1]}").pack()
             button.pack()
             current_question += 1  # Increment after setting answers
 
-        if __debug__ is True:
+        if __debug__ is not False:
             print(index)
             print(question_set)
             # iterate throught all questions for debuging
@@ -271,7 +271,7 @@ Correct answer was: {question_set[i][1]}").pack()
         for i, options in enumerate(difficulties):  # i refers to the index
             options = ttk.Button(div, text=options.title(
             ),  command=lambda i=i, hardness=options: level(hardness, i))
-            if __debug__ is True:
+            if __debug__ is not False:
                 print(f"options:{options}, i:{i}")
             options.pack()
 
@@ -282,7 +282,7 @@ Correct answer was: {question_set[i][1]}").pack()
             value = username_entry.get().strip().title().replace("-", "")
             if value.isalpha() and 2 <= len(value) <= 15:
                 username = value
-                if __debug__ is True:
+                if __debug__ is not False:
                     print(username_entry.get())
                     print(f"{username=}")
             else:
