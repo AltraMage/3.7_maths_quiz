@@ -2,7 +2,7 @@
 https://github.com/AltraMage/3.7_maths_quiz
 
 GUI based math game for Tawa College year 9's. Calculators are cheating for this one!
-Make Sure to run with the '-O' flag, e.g. `python3 -O SimonsenL_3.7_maths_quiz_v10.py`
+Make Sure to run with the '-O' flag, e.g. `python -O SimonsenL_3.7_maths_quiz_v10.py`
 
 ## Features
 - Custom Questions; Could be adapted for any context
