@@ -42,7 +42,7 @@ def create_file():
 
     # Constant quit without saving button
     emergency_exit = tk.Button(popup, text="Quit without saving", command=end)
-    emergency_exit.pack(anchor=tk.SE)
+    emergency_exit.place(relx=0.85, rely=0.95)
 
     def clear():
         for child in main.winfo_children():
