@@ -279,11 +279,11 @@ Correct answer was: {question_set[i][1]}").pack()
         # Code for getting a valid username
         def check_name():
             global username  # Use the global scope else incorrect assignment
-            value = box.get().strip().title().replace("-", "")
+            value = username_entry.get().strip().title().replace("-", "")
             if value.isalpha() and 2 <= len(value) <= 15:
                 username = value
                 if __debug__ is True:
-                    print(box.get())
+                    print(username_entry.get())
                     print(f"{username=}")
             else:
                 username = ""
@@ -293,7 +293,7 @@ Correct answer was: {question_set[i][1]}").pack()
 and only including latin chars")
             if username != "":
                 label.destroy()
-                box.destroy()
+                username_entry.destroy()
                 submit.destroy()
                 welcoming.destroy()
                 level_select()
@@ -306,9 +306,9 @@ and only including latin chars")
         label = ttk.Label(root, text="Please enter your name")
         label.pack()
         # User input handling
-        box = ttk.Entry(root)
-        box.pack()
-        box.focus()
+        username_entry = ttk.Entry(root)
+        username_entry.pack()
+        username_entry.focus()
 
         submit = ttk.Button(root, text="Submit Name",
                             command=lambda: check_name())
